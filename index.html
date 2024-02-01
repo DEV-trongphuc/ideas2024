@@ -301,7 +301,6 @@
         )
           .then((response) => response.json())
           .then((data) => {
-            console.log(data.data);
             const btn = document.querySelector(".spiner_btn");
             btn.onclick = () => {
               spiner(data.data);
@@ -312,7 +311,6 @@
             console.error("Error fetching data:", error);
           });
         const check = localStorage.getItem("jo22o312o2rodjo2jo1312");
-        console.log(check);
         var checkname = "";
         if (check) {
           spinBtn.style = "pointer-events: none;";

@@ -190,7 +190,6 @@
       }
       .spin_form_container {
         margin-top: -10vh;
-        
       }
       .spiner_container {
         width: 80vw;
@@ -205,12 +204,6 @@
     }
   </style>
   <body>
-    <audio loop="1" autoplay="1" style="display: none">
-      <source
-        src="https://ideas.edu.vn/wp-content/uploads/2024/02/Am-thanh-tet-www_tiengdong_com.mp3"
-        type="audio/mpeg"
-      />
-    </audio>
     <div class="spiner_container">
       <img
         src="https://ideas.edu.vn/wp-content/uploads/2024/02/CHF-6.png"
@@ -259,7 +252,7 @@
           "Macbook Pro M2",
           "Voucher 500-CHF",
           "Voucher 200-CHF",
-          "Voucher 100-CHF",
+          "Voucher 300-CHF",
         ];
         var random = Math.floor(Math.random() * 100);
         if (data || data >= 0) {
@@ -270,14 +263,14 @@
               "jo22o312o2rodjo2jo1312",
               "jjt48329139jffeji23912u3u213u218jf933080"
             );
-          } else if (random <= 60 && random >= 1) {
+          } else if (random <= 50 && random >= 1) {
             spined = rewards[1];
             spin.style = "rotate:1620deg";
             localStorage.setItem(
               "jo22o312o2rodjo2jo1312",
               "jjt48329139jffeji23912u3u213u218jf933181"
             );
-          } else if (random <= 90 && random >= 61) {
+          } else if (random <= 80 && random >= 51) {
             spined = rewards[2];
             spin.style = "rotate:1797deg";
             localStorage.setItem(
@@ -286,10 +279,10 @@
             );
           } else {
             spined = rewards[3];
-            spin.style = "rotate:1560deg";
+            spin.style = "rotate:1679deg";
             localStorage.setItem(
               "jo22o312o2rodjo2jo1312",
-              "jjt48329139jffeji23912u3u213u218jf93383"
+              "jjt48329139jffeji23912u3u213u218jf933383"
             );
           }
         }
@@ -319,6 +312,7 @@
             console.error("Error fetching data:", error);
           });
         const check = localStorage.getItem("jo22o312o2rodjo2jo1312");
+        console.log(check);
         var checkname = "";
         if (check) {
           spinBtn.style = "pointer-events: none;";
@@ -329,13 +323,10 @@
           } else if (check === "jjt48329139jffeji23912u3u213u218jf933282") {
             checkname = "Bạn đã quay trúng Voucher 200-CHF";
           } else if (check === "jjt48329139jffeji23912u3u213u218jf933383") {
-            checkname = "Bạn đã quay trúng Voucher 100-CHF";
+            checkname = "Bạn đã quay trúng Voucher 300-CHF";
           } else {
             return false;
           }
-          document
-            .querySelector(".spin_form_container")
-            .classList.add("active");
           document.querySelector(
             ".spin_form_container .spin_form"
           ).innerHTML = `  <div class="spin_form_title">
@@ -343,6 +334,9 @@
           <h2>${checkname}</h2>
           <a href="https://ideas.edu.vn/">Chọn chương trình và nhận lộc ngay</a>
         </div>`;
+          document
+            .querySelector(".spin_form_container")
+            .classList.add("active");
         }
       });
       function submitToGoogleForm() {

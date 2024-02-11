@@ -249,7 +249,7 @@
       var spin = document.querySelector(".spiner");
       var spinBtn = document.querySelector(".spiner_btn");
       var spined = "";
-      function spiner(data) {
+      function spiner() {
         var rewards = [
           "Macbook Air M2",
           "Voucher 500-CHF",
@@ -257,36 +257,27 @@
           "Voucher 300-CHF",
         ];
         var random = Math.floor(Math.random() * 100);
-        if (data || data >= 0) {
-          if (random === 0 && data !== 1) {
-            spined = rewards[0];
-            spin.style = "rotate:1498deg";
-            localStorage.setItem(
-              "jo22o312o2rodjo2jo1312",
-              "jjt48329139jffeji23912u3u213u218jf933080"
-            );
-          } else if (random <= 50 && random >= 1) {
-            spined = rewards[1];
-            spin.style = "rotate:1620deg";
-            localStorage.setItem(
-              "jo22o312o2rodjo2jo1312",
-              "jjt48329139jffeji23912u3u213u218jf933181"
-            );
-          } else if (random <= 80 && random >= 51) {
-            spined = rewards[2];
-            spin.style = "rotate:1797deg";
-            localStorage.setItem(
-              "jo22o312o2rodjo2jo1312",
-              "jjt48329139jffeji23912u3u213u218jf933282"
-            );
-          } else {
-            spined = rewards[3];
-            spin.style = "rotate:1679deg";
-            localStorage.setItem(
-              "jo22o312o2rodjo2jo1312",
-              "jjt48329139jffeji23912u3u213u218jf933383"
-            );
-          }
+        if (random <= 50 && random >= 0) {
+          spined = rewards[1];
+          spin.style = "rotate:1620deg";
+          localStorage.setItem(
+            "jo22o312o2rodjo2jo1312",
+            "jjt48329139jffeji23912u3u213u218jf933181"
+          );
+        } else if (random <= 80 && random >= 51) {
+          spined = rewards[2];
+          spin.style = "rotate:1797deg";
+          localStorage.setItem(
+            "jo22o312o2rodjo2jo1312",
+            "jjt48329139jffeji23912u3u213u218jf933282"
+          );
+        } else {
+          spined = rewards[3];
+          spin.style = "rotate:1679deg";
+          localStorage.setItem(
+            "jo22o312o2rodjo2jo1312",
+            "jjt48329139jffeji23912u3u213u218jf933383"
+          );
         }
         setTimeout(() => {
           document.querySelector(
@@ -298,20 +289,11 @@
         }, 5500);
       }
       document.addEventListener("DOMContentLoaded", function () {
-        fetch(
-          "https://script.google.com/macros/s/AKfycbxwPWXVavywHvN40SerYBzN5KSprTUi-ehS4Tk1KDVXQnRNWrcHrcTF4QRnC1G91_Kw/exec"
-        )
-          .then((response) => response.json())
-          .then((data) => {
-            const btn = document.querySelector(".spiner_btn");
-            btn.onclick = () => {
-              spiner(data.data);
-              spinBtn.style = "pointer-events: none;";
-            };
-          })
-          .catch((error) => {
-            console.error("Error fetching data:", error);
-          });
+        const btn = document.querySelector(".spiner_btn");
+        btn.onclick = () => {
+          spiner();
+          spinBtn.style = "pointer-events: none;";
+        };
         const check = localStorage.getItem("jo22o312o2rodjo2jo1312");
         var checkname = "";
         if (check) {

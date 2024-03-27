@@ -11,6 +11,7 @@
       margin: 0;
       box-sizing: border-box;
     }
+
     html {
       background-color: #7e0009;
       font-size: 62.5%;
@@ -25,9 +26,10 @@
       background: url("https://ideas.edu.vn/wp-content/uploads/2024/02/bg.png");
       background-repeat: no-repeat;
       background-size: cover;
-      font-family: sans-serif;
       font-size: 1.6rem;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
+
     .spiner_container {
       position: absolute;
       width: 37%;
@@ -37,14 +39,7 @@
       justify-content: center;
       align-items: center;
     }
-    .spiner {
-      /* width: 100%;
-      position: absolute;
-      top: 50%;
-      left: 0;
-      transform: translateY(-50%);
-      transition: 0.35s ease-in-out; */
-    }
+
     .spiner_btn {
       width: 15%;
       position: absolute;
@@ -57,21 +52,23 @@
       transition: 0.35s ease-in-out;
       animation: zoomAnimation 0.5s infinite;
     }
+
     @keyframes zoomAnimation {
       0% {
-        scale: 1;
+        transform: scale(1);
       }
       50% {
-        scale: 1.02;
+        transform: scale(1.02);
       }
       100% {
-        scale: 1;
+        transform: scale(1);
       }
     }
 
     .spiner_btn:hover {
       width: 13%;
     }
+
     .spiner {
       width: 100%;
       transition: 5s ease-in-out;
@@ -79,6 +76,7 @@
       box-shadow: 0 0 20px rgba(255, 234, 142, 0.733);
       border-radius: 50%;
     }
+
     .spin_form_container {
       display: flex;
       justify-content: center;
@@ -88,9 +86,11 @@
       z-index: 999;
       pointer-events: none;
     }
+
     .spin_form_container.active {
       pointer-events: all;
     }
+
     .spin_form_container h2 {
       padding-bottom: 2rem;
       color: #7e0009;
@@ -98,6 +98,7 @@
       font-weight: 900;
       margin: 0 auto;
     }
+
     .spin_form {
       display: flex;
       justify-content: center;
@@ -105,48 +106,53 @@
       flex-direction: column;
       z-index: 999;
       background-color: white;
-      padding: 3rem 3rem;
+      padding: 3rem;
       border-radius: 10px;
       box-shadow: 0 0 20px rgba(255, 234, 142, 0.733);
       pointer-events: none;
-      scale: 0;
+      transform: scale(0);
       transition: 0.35s;
     }
+
     .spin_form_container.active .spin_form {
       pointer-events: all;
-      scale: 1;
+      transform: scale(1);
     }
+
     .spin_form_container.active .spin_overlay {
       opacity: 1;
       pointer-events: none;
     }
+
     .spin_form_content {
       display: flex;
       flex-direction: column;
       gap: 2rem;
     }
+
     .spin_form input {
       padding: 0.8rem 1rem;
       border-radius: 5px;
       width: 100%;
-      border: none;
-      font-size: 1.5rem;
       border: 1px solid #333;
+      font-size: 1.5rem;
       outline: 2px solid transparent;
     }
+
     .spin_form p {
       font-size: 1.5rem;
       color: #333;
       padding-bottom: 1rem;
       font-weight: bold;
     }
+
     .spin_form input:focus {
       outline: 1.5px solid #7e0009;
       border: 1px solid transparent;
     }
+
     a {
       padding: 1.5rem 1rem;
-      width: 100%;
       border-radius: 10px;
       background-color: #7e0009;
       text-align: center;
@@ -154,9 +160,10 @@
       display: block;
       font-weight: bold;
       color: white;
-      text-decoration: unset;
+      text-decoration: none;
       cursor: pointer;
     }
+
     .spin_overlay {
       position: absolute;
       top: 0;
@@ -168,16 +175,19 @@
       opacity: 0;
       pointer-events: none;
     }
+
     .spin_form_title img {
       margin: 0 auto;
       display: block;
       padding-bottom: 1rem;
       width: 10rem;
     }
+
     .spin_form_p {
       width: 100%;
       text-align: center;
     }
+
     @media (max-width: 1200px) {
       body {
         background: url("https://ideas.edu.vn/wp-content/uploads/2024/02/Chi-ap-dung-cho-cac-khoa-khai-xuan-dau-nam-2024-cua-cac-chuong-trinh-MBA-Online-SBS-Ascencia-Swiss-UMEF-1.png");
@@ -195,7 +205,7 @@
       }
       .spiner_container {
         width: 80vw;
-        margin-top: -30vh;
+        margin-top: -15vh;
       }
       .spin_form {
         width: 95vw;
@@ -218,7 +228,7 @@
         class="spiner_btn"
       />
     </div>
-    <div class="spin_form_container">
+    <form class="spin_form_container">
       <div class="spin_form">
         <div class="spin_form_title">
           <img
@@ -226,135 +236,151 @@
           />
           <p class="spin_form_p">Tuyệt vời!!!</p>
           <h2></h2>
-          <!-- <a href="https://ideas.edu.vn/">Chọn chương trình và nhận Lộc ngay</a> -->
         </div>
         <div class="spin_form_content">
           <div class="spin_form_input">
             <p>Họ và tên</p>
-            <input type="text" placeholder="" id="nameI" />
+            <input required type="text" placeholder="" id="nameI" />
           </div>
           <div class="spin_form_input">
             <p>Số điện thoại</p>
-            <input type="text" placeholder="" id="phoneI" />
+            <input required type="phone" placeholder="" id="phoneI" />
           </div>
           <div class="spin_form_btn">
-            <a type="button" onclick="submitToGoogleForm()">Xác nhận</a>
+            <a onclick="submitToGoogleForm()">Xác nhận</a>
           </div>
         </div>
       </div>
       <div class="spin_overlay"></div>
-    </div>
+    </form>
 
     <script>
-      var spin = document.querySelector(".spiner");
-      var spinBtn = document.querySelector(".spiner_btn");
-      var spined = "";
+      const spin = document.querySelector(".spiner");
+      const spinBtn = document.querySelector(".spiner_btn");
+      const check = localStorage.getItem("jo22o312o2rodjo2jo1312");
+      let checkname = "";
+      let spined = "";
+
+      const rewards = [
+        "Macbook Air M2",
+        "Voucher 500-CHF",
+        "Voucher 300-CHF",
+        "Voucher 200-CHF",
+        "Voucher 100-CHF", // Khách kêu quay là trúng nên ko thêm cái giải quay hụt
+      ];
+
       function spiner() {
-        var rewards = [
-          "Macbook Air M2",
-          "Voucher 500-CHF",
-          "Voucher 200-CHF",
-          "Voucher 300-CHF",
-        ];
-        var random = Math.floor(Math.random() * 100);
-        if (random <= 50 && random >= 0) {
+        const random = Math.floor(Math.random() * 100);
+        console.log(random);
+        if (random < 5) {
+          spined = rewards[0];
+          spin.style.transform = "rotate(1496deg)";
+          localStorage.setItem(
+            "jo22o312o2rodjo2jo1312",
+            "jjt48329139jffeji23912u3u213u218jf933080"
+          );
+        } else if (random >= 5 && random < 30) {
           spined = rewards[1];
-          spin.style = "rotate:1620deg";
+          spin.style.transform = "rotate(1620deg)";
           localStorage.setItem(
             "jo22o312o2rodjo2jo1312",
             "jjt48329139jffeji23912u3u213u218jf933181"
           );
-        } else if (random <= 80 && random >= 51) {
+        } else if (random >= 30 && random < 60) {
           spined = rewards[2];
-          spin.style = "rotate:1797deg";
+          spin.style.transform = "rotate(1672deg)";
+          localStorage.setItem(
+            "jo22o312o2rodjo2jo1312",
+            "jjt48329139jffeji23912u3u213u218jf933282"
+          );
+        } else if (random >= 60 && random < 80) {
+          spined = rewards[3];
+          spin.style.transform = "rotate(1797deg)";
           localStorage.setItem(
             "jo22o312o2rodjo2jo1312",
             "jjt48329139jffeji23912u3u213u218jf933282"
           );
         } else {
-          spined = rewards[3];
-          spin.style = "rotate:1679deg";
+          spined = rewards[4];
+          spin.style.transform = "rotate(1552deg)";
           localStorage.setItem(
             "jo22o312o2rodjo2jo1312",
             "jjt48329139jffeji23912u3u213u218jf933383"
           );
         }
+
         setTimeout(() => {
           document.querySelector(
             ".spin_form_title h2"
-          ).innerHTML = `Chúc mừng bạn nhận được </br/> ${spined}`;
+          ).innerHTML = `Bạn nhận được <br/> ${spined}`;
           document
             .querySelector(".spin_form_container")
             .classList.add("active");
         }, 5500);
       }
-      document.addEventListener("DOMContentLoaded", function () {
-        const btn = document.querySelector(".spiner_btn");
-        btn.onclick = () => {
-          spiner();
-          spinBtn.style = "pointer-events: none;";
-        };
-        const check = localStorage.getItem("jo22o312o2rodjo2jo1312");
-        var checkname = "";
-        if (check) {
-          spinBtn.style = "pointer-events: none;";
-          if (check === "jjt48329139jffeji23912u3u213u218jf933080") {
-            checkname = "Macbook Air M2!!!";
-          } else if (check === "jjt48329139jffeji23912u3u213u218jf933181") {
-            checkname = "Voucher 500-CHF";
-          } else if (check === "jjt48329139jffeji23912u3u213u218jf933282") {
-            checkname = "Voucher 200-CHF";
-          } else if (check === "jjt48329139jffeji23912u3u213u218jf933383") {
-            checkname = "Voucher 300-CHF";
-          } else {
-            return false;
-          }
-          document.querySelector(
-            ".spin_form_container .spin_form"
-          ).innerHTML = `  <div class="spin_form_title">
-            <img src="https://ideas.edu.vn/wp-content/uploads/2024/02/Voucher-giam-hoc-phi-500-CHF-2.png" />
-          <h2> Bạn đã nhận được <br/>${checkname}</h2>
-          <a href="https://ideas.edu.vn/">Chọn chương trình và nhận lộc ngay</a>
-        </div>`;
-          document
-            .querySelector(".spin_form_container")
-            .classList.add("active");
-        }
-      });
-      function submitToGoogleForm() {
-        var name = document.getElementById("nameI").value;
-        var phone = document.getElementById("phoneI").value;
-        if (name && phone && spined) {
-          var formUrl =
-            "https://docs.google.com/forms/d/e/1FAIpQLSfJqIb7HPh-rME_efsB9SGzcksCHCcgEQ3NfGtQAbjPwdBYGg/formResponse";
 
-          var formData = {
-            "entry.1879026896": name, // Thay thế bằng ID của trường dữ liệu trong Google Form
-            "entry.1651351904": phone, // Thay thế bằng ID của trường dữ liệu trong Google Form
-            "entry.1067739238": spined, // Thay thế bằng ID của trường dữ liệu trong Google Form
+      spinBtn.onclick = () => {
+        spiner();
+        spinBtn.style.pointerEvents = "none";
+      };
+      if (check) {
+        spinBtn.style.pointerEvents = "none";
+        if (check === "jjt48329139jffeji23912u3u213u218jf933080") {
+          checkname = "Macbook Air M2!!!";
+        } else if (check === "jjt48329139jffeji23912u3u213u218jf933181") {
+          checkname = "Voucher 500-CHF";
+        } else if (check === "jjt48329139jffeji23912u3u213u218jf933282") {
+          checkname = "Voucher 200-CHF";
+        } else if (check === "jjt48329139jffeji23912u3u213u218jf933383") {
+          checkname = "Voucher 300-CHF";
+        } else {
+          console.error("Invalid check value:", check);
+        }
+        document.querySelector(".spin_form_container .spin_form").innerHTML = `
+      <div class="spin_form_title">
+        <img src="https://ideas.edu.vn/wp-content/uploads/2024/02/Voucher-giam-hoc-phi-500-CHF-2.png" />
+        <h2> Bạn đã nhận được <br/>${checkname}</h2>
+        <a href="https://www.youtube.com/watch?v=ZCS9ReH7aUw&t">Nhận lộc ngay</a>
+      </div>`;
+
+        document.querySelector(".spin_form_container").classList.add("active");
+      }
+
+      async function submitToGoogleForm() {
+        const name = document.getElementById("nameI").value;
+        const phone = document.getElementById("phoneI").value;
+
+        if (name && phone && spined) {
+          const formUrl =
+            "https://docs.google.com/forms/d/e/1FAIpQLSfJqIb7HPh-rME_efsB9SGzcksCHCcgEQ3NfGtQAbjPwdBYGg/formResponse"; // Thay bằng link google form của các bạn và các entry như mình hướng dẫn nha
+          const formData = {
+            "entry.1879026896": name,
+            "entry.1651351904": phone,
+            "entry.1067739238": spined,
           };
-          fetch(formUrl, {
-            method: "POST",
-            mode: "no-cors",
-            headers: {
-              "Content-Type": "application/x-www-form-urlencoded",
-            },
-            body: new URLSearchParams(formData),
-          })
-            .then((response) => {
-              document
-                .querySelector(".spin_form_container")
-                .classList.remove("active");
-              setTimeout(() => {
-                alert(
-                  "Thành công, đến trang chủ để xem về chương trình học phù hợp ngay"
-                );
-                location.href = "https://ideas.edu.vn/";
-              }, 500);
-            })
-            .catch((error) => {
-              console.error("Error submitting form:", error);
+
+          try {
+            const response = await fetch(formUrl, {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+              },
+              body: new URLSearchParams(formData),
             });
+
+            document
+              .querySelector(".spin_form_container")
+              .classList.remove("active");
+            setTimeout(() => {
+              alert(
+                "Thành công, đến trang chủ để xem về chương trình học phù hợp ngay"
+              );
+              location.href = "https://www.youtube.com/watch?v=ZCS9ReH7aUw";
+            }, 500);
+          } catch (error) {
+            console.error("Error submitting form:", error);
+          }
         } else {
           alert("Vui lòng nhập đầy đủ thông tin");
         }
